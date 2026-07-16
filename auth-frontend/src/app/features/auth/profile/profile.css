@@ -1,0 +1,29 @@
+.profile-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.profile-card {
+  width: min(560px, 100%);
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-info p {
+  margin: 8px 0;
+}
+
+.status {
+  color: #475569;
+  margin-bottom: 16px;
+}

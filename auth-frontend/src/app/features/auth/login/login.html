@@ -1,37 +1,32 @@
-<mat-card>
+<section class="auth-page">
+  <mat-card class="auth-card">
+    <div class="auth-intro">
+      <p class="eyebrow">Welcome back</p>
+      <h2>Sign in to your account</h2>
+      <p>Use this screen to connect your frontend to your backend auth API.</p>
+    </div>
 
-    <h2>Login</h2>
-
-    <mat-form-field appearance="outline">
-
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+      </mat-form-field>
 
-        <input
-            matInput
-            type="email">
-
-    </mat-form-field>
-
-    <br>
-
-    <mat-form-field appearance="outline">
-
+      <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
 
-        <input
-            matInput
-            type="password">
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
 
-    </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Signing in...' : 'Login' }}
+      </button>
+    </form>
 
-    <br>
-
-    <button
-        mat-raised-button
-        color="primary">
-
-        Login
-
-    </button>
-
-</mat-card>
+    <p class="switch-link">
+      New here?
+      <a routerLink="/register">Create an account</a>
+    </p>
+  </mat-card>
+</section>

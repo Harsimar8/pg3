@@ -1,1 +1,37 @@
-<h1>Register Page</h1>
+<section class="auth-page">
+  <mat-card class="auth-card">
+    <div class="auth-intro">
+      <p class="eyebrow">Create account</p>
+      <h2>Join the platform</h2>
+      <p>Register here and send the form data to your backend auth endpoint.</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Full name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Creating account...' : 'Register' }}
+      </button>
+    </form>
+
+    <p class="switch-link">
+      Already a member?
+      <a routerLink="/login">Sign in</a>
+    </p>
+  </mat-card>
+</section>

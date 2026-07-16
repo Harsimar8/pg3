@@ -1,1 +1,12 @@
-<h1>Dashboard</h1>
+<section class="dashboard-page">
+  <mat-card class="dashboard-card">
+    <p class="eyebrow">Dashboard</p>
+    <h2>Welcome to your app</h2>
+    <p>This is the landing screen for your authenticated frontend.</p>
+
+    <div class="actions">
+      <a mat-raised-button color="primary" routerLink="/profile">View profile</a>
+      <button mat-stroked-button color="primary" (click)="authService.logout()">Logout</button>
+    </div>
+  </mat-card>
+</section>

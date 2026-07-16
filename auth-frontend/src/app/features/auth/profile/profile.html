@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<section class="profile-page">
+  <mat-card class="profile-card">
+    <div class="profile-header">
+      <div>
+        <p class="eyebrow">Profile</p>
+        <h2>Your account</h2>
+      </div>
+      <a mat-stroked-button routerLink="/dashboard">Back to dashboard</a>
+    </div>
+
+    <div *ngIf="isLoading" class="status">Loading profile...</div>
+
+    <div *ngIf="!isLoading && currentUser()" class="profile-info">
+      <p><strong>Name:</strong> {{ currentUser()?.name }}</p>
+      <p><strong>Email:</strong> {{ currentUser()?.email }}</p>
+      <p><strong>Role:</strong> {{ currentUser()?.role ?? 'User' }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !currentUser()" class="status">
+      No profile data available yet.
+    </div>
+
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  </mat-card>
+</section>
